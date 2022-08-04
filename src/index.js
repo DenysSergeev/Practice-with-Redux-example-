@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {configureStore} from 'redux';
-
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-
 
 const defaultState = {
   cash: 0
@@ -23,7 +21,7 @@ const reducer = (state = defaultState, action) => {
   }
 }
 
-const store = configureStore(reducer);
+const store = configureStore(reducer());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
